@@ -8,11 +8,29 @@
     <title>VanilaSearcher</title>
   </head>
   <body>
-    <h1 id="clock" class="clock">00:00:00</h1>
-    <form id="searchForm" class="search-form">
-      <input type="text" id="searchInput" class="search-form-input" />
-    </form>
-    <ul></ul>
+    <section id="container" class="container">
+      <h1 id="clock" class="clock">00:00:00</h1>
+      <!-- 로그인 -->
+      <form id="greetingsForm" class="greetings-form">
+        <h1 id="greetingsText" class="greetings-form__text"></h1>
+        <input
+          type="text"
+          id="greetingsInput"
+          class="greetings-form__input"
+          placeholder="이름을 입력하세요."
+        />
+      </form>
+      <button id="logoutBtn">로그아웃</button>
+      <!-- 투두리스트 -->
+      <form id="todoForm">
+        <input type="text" id="todoInput" placeholder="할 일을 입력하세요." />
+      </form>
+      <ul id="todoList"></ul>
+    </section>
+
+    <script src="global.js"></script>
     <script src="clock.js"></script>
+    <script src="greetings.js"></script>
+    <script src="todo.js"></script>
   </body>
 </html>
