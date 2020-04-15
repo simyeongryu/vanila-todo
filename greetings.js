@@ -1,10 +1,16 @@
 const handleLogoutBtn = () => {
-  localStorage.removeItem(LS_USERNAME);
-  localStorage.removeItem(LS_TODO_LIST);
-  handleGreetingsText();
+  const really = confirm("등록한 일정이 모두 사라집니다. 로그아웃하시겠습니까?");
+  if (really) {
+    localStorage.removeItem(LS_USERNAME);
+    localStorage.removeItem(LS_TODO_LIST);
+    handleGreetingsText();
 
-  logoutBtn.classList.add(HIDE); // 로그아웃 버튼 숨기기
-  todoInput.classList.add(HIDE); // todo 입력창 숨기기
+    logoutBtn.classList.add(HIDE); // 로그아웃 버튼 숨기기
+    todoInput.classList.add(HIDE); // todo 입력창 숨기기
+    // to do 삭제
+    const delBtnArr = Array.from(document.querySelectorAll(".todoList__del"));
+    delBtnArr.forEach(item => item.click());
+  }
 };
 
 const handleGreetingsInput = e => {
