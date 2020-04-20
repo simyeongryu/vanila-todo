@@ -3,37 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css" />
-    <link rel="stylesheet" href="reset.css" />
-    <title>VanilaSearcher</title>
+    <link rel="stylesheet" href="./assets/css/index.css" />
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <title>VanilaToDoList</title>
   </head>
   <body>
     <section id="container" class="container">
       <h1 id="clock" class="clock">00:00:00</h1>
       <!-- 로그인 -->
-      <form id="greetingsForm" class="greetings-form">
-        <h1 id="greetingsText" class="greetings-form__text"></h1>
+      <form id="greetingsForm" class="greetings-form form">
+        <h1 id="greetingsText" class="greetings-text"></h1>
         <input
           type="text"
           id="greetingsInput"
-          class="greetings-form__input"
+          class="greetings-input input"
           placeholder="이름을 입력하세요."
         />
       </form>
-      <button id="logoutBtn">로그아웃</button>
+      <button id="logoutBtn" class="logout-btn">로그아웃</button>
       <!-- 투두리스트 -->
-      <form id="todoForm">
-        <input type="text" id="todoInput" placeholder="할 일을 입력하세요." />
+      <form id="todoForm" class="todo-form form">
+        <input
+          type="text"
+          id="todoInput"
+          class="todo-input input"
+          placeholder="할 일을 입력하세요."
+        />
       </form>
-      <ul id="todoList"></ul>
+      <ul id="todoList" class="todo-list"></ul>
       <!-- 날씨 -->
-      <span id="weather"></span>
+      <span id="weather" class="weather"></span>
     </section>
-
-    <script src="global.js"></script>
-    <script src="clock.js"></script>
-    <script src="greetings.js"></script>
-    <script src="todo.js"></script>
-    <script src="weather.js"></script>
+    <script src="./assets/js/global.js"></script>
+    <script src="./assets/js/clock.js"></script>
+    <script src="./assets/js/greetings.js"></script>
+    <script src="./assets/js/todo.js"></script>
+    <script src="./assets/js/weather.js"></script>
+    <script src="./assets/js/background.js"></script>
   </body>
 </html>

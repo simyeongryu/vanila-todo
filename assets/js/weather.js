@@ -8,7 +8,7 @@ const getWeather = async (lat, lng) => {
   const temp = json.main.temp;
   const country = json.sys.country;
   const place = json.name;
-  weather.innerText = `${temp} @ ${place} ${country}`;
+  weather.innerText = `${temp} °C @ ${place} ${country}`;
 };
 
 const handleFail = () => {

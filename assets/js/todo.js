@@ -20,6 +20,7 @@ const addTodo = text => {
   // 화면에 todo 추가
   const li = document.createElement("li");
   li.id = id;
+  li.classList.add("todo");
   li.innerHTML = `
   <input type="checkbox" class="todoList__checkbox" />
   <span class="todoList__text">${text}</span>
