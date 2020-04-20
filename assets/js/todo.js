@@ -1,14 +1,25 @@
 // todo가 담길 배열
 let todoArr = [];
 
+const handleCheck = e => {
+  const li = e.target.parentNode;
+  e.target.checked ? li.classList.add(ACHIEVED) : li.classList.remove(ACHIEVED);
+};
+
 /** todo를 화면 및 로컬스토리지에서 삭제하는 함수 */
 const deleteTodo = e => {
   // 화면에서 삭제
   const li = e.target.parentNode;
   todoList.removeChild(li);
-  // 로컬 스토리지에서 삭제
-  todoArr = todoArr.filter(item => item.id !== parseInt(+li.id)); // li.id가 string이기 때문에 number로 형변환
+  // 로컬 스토리지에서 삭제 (li.id가 string이기 때문에 number로 형변환)
+  todoArr = todoArr.filter(item => item.id !== parseInt(+li.id));
   localStorage.setItem(LS_TODO_LIST, JSON.stringify(todoArr));
+  // 일정이 5개 미만이면 입력 제한 해제
+  const delArr = Array.from(document.querySelectorAll(".todoList__del"));
+  if (delArr.length < 5) {
+    todoInput.placeholder = "일정을 입력하세요";
+    todoInput.readOnly = false;
+  }
 };
 
 /** 화면 및 로컬 스토리지에 todo를 추가하는 함수 */
@@ -31,6 +42,17 @@ const addTodo = text => {
   const todoListDel = document.querySelectorAll(".todoList__del");
   const delArr = Array.from(todoListDel);
   delArr.forEach(btn => btn.addEventListener("click", deleteTodo));
+
+  // check
+  const todoListCheck = document.querySelectorAll(".todoList__checkbox");
+  const checkArr = Array.from(todoListCheck);
+  checkArr.forEach(box => box.addEventListener("click", handleCheck));
+
+  // 일정이 5개가 넘으면 입력 제한
+  if (delArr.length >= 5) {
+    todoInput.placeholder = "더 적게, 더 좋게! 5개에 집중하세요 :)";
+    todoInput.readOnly = true;
+  }
 };
 
 /** to do submit 관리 */
