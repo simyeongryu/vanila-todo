@@ -34,7 +34,7 @@ const handleGreetingsText = () => {
     logoutBtn.classList.add(HIDE); // 로그아웃 버튼 숨기기
     todoInput.classList.add(HIDE); // todo 입력창 숨기기
   } else {
-    greetingsText.innerHTML = `안녕하세요 ${localStorage.getItem(LS_USERNAME)} 님`;
+    greetingsText.innerHTML = `안녕하세요, ${localStorage.getItem(LS_USERNAME)} 님 :)`;
     greetingsInput.classList.add(HIDE);
 
     logoutBtn.classList.remove(HIDE); // 로그아웃 버튼 드러내기
