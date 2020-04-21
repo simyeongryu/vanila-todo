@@ -7,6 +7,7 @@ const todoForm = document.querySelector("#todoForm");
 const todoInput = document.querySelector("#todoInput");
 const todoList = document.querySelector("#todoList");
 const weather = document.querySelector("#weather");
+const achievement = document.querySelector("#achievement");
 
 // local storage
 const LS_USERNAME = "username";
