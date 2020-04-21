@@ -1,6 +1,32 @@
 // todo가 담길 배열
 let todoArr = [];
 
+/**
+ * 달성률 화면 표시
+ * @param {*} checkedLength - check 표시된 일정의 수
+ * @param {*} totalLength - 전체 일정의 수
+ */
+const paintAchievement = (checkedLength = 0, totalLength = 0) => {
+  const percent = checkedLength / totalLength;
+  if (totalLength === 0) {
+    achievement.classList.add(HIDE);
+    return;
+  }
+  if (percent === 1) {
+    achievement.innerHTML = `달성률 ${Math.floor((checkedLength / totalLength) * 100)}%`;
+    achievement.classList.remove(HIDE);
+    achievement.style = "color: #61BD4F;";
+  } else {
+    achievement.innerHTML = `달성률 ${Math.floor((checkedLength / totalLength) * 100)}%`;
+    achievement.classList.remove(HIDE);
+    achievement.style = "color: #f5f5f5;";
+  }
+};
+
+/**
+ * 체크박스 처리 함수
+ * @param {*} e - 클릭 이벤트
+ */
 const handleCheck = e => {
   const checkbox = e.target;
   const li = checkbox.parentNode;
@@ -8,10 +34,20 @@ const handleCheck = e => {
     li.classList.add(ACHIEVED);
     todoArr[li.id].checked = true;
     localStorage.setItem(LS_TODO_LIST, JSON.stringify(todoArr));
+    // check
+    const todoListCheck = document.querySelectorAll(".todoList__checkbox");
+    const checkArr = Array.from(todoListCheck);
+    const checkedArr = checkArr.filter(box => box.checked);
+    paintAchievement(checkedArr.length, checkArr.length);
   } else {
     li.classList.remove(ACHIEVED);
     todoArr[li.id].checked = false;
     localStorage.setItem(LS_TODO_LIST, JSON.stringify(todoArr));
+    // check
+    const todoListCheck = document.querySelectorAll(".todoList__checkbox");
+    const checkArr = Array.from(todoListCheck);
+    const checkedArr = checkArr.filter(box => box.checked);
+    paintAchievement(checkedArr.length, checkArr.length);
   }
 };
 
@@ -29,6 +65,11 @@ const deleteTodo = e => {
     todoInput.placeholder = "일정을 입력하세요";
     todoInput.disabled = false;
   }
+
+  const todoListCheck = document.querySelectorAll(".todoList__checkbox");
+  const checkArr = Array.from(todoListCheck);
+  const checkedArr = checkArr.filter(box => box.checked);
+  paintAchievement(checkedArr.length, checkArr.length);
 };
 
 /** 화면 및 로컬 스토리지에 todo를 추가하는 함수 */
@@ -66,6 +107,9 @@ const addTodo = (text, checked = false) => {
   const todoListCheck = document.querySelectorAll(".todoList__checkbox");
   const checkArr = Array.from(todoListCheck);
   checkArr.forEach(box => box.addEventListener("click", handleCheck));
+  const checkedArr = checkArr.filter(box => box.checked);
+
+  paintAchievement(checkedArr.length, checkArr.length);
 
   // 일정이 5개가 넘으면 입력 제한
   if (delArr.length >= 5) {
