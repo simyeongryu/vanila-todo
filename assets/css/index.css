@@ -88,6 +88,13 @@
   margin: auto;
   margin-top: 10px;
   margin-bottom: 10px;
+  white-space: nowrap;
+}
+
+.container .todo .todoList__text {
+  display: inline-block;
+  width: 250px;
+  overflow: auto;
 }
 
 .container .weather {
@@ -129,5 +136,6 @@
 }
 
 .achieved {
-  text-decoration: line-through;
+  /* text-decoration: line-through; */
+  color: greenyellow;
 }

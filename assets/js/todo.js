@@ -13,13 +13,13 @@ const paintAchievement = (checkedLength = 0, totalLength = 0) => {
     return;
   }
   if (percent === 1) {
-    achievement.innerHTML = `달성률 ${Math.floor((checkedLength / totalLength) * 100)}%`;
+    achievement.innerHTML = `😍달성률 ${Math.floor(
+      (checkedLength / totalLength) * 100
+    )}%😍`;
     achievement.classList.remove(HIDE);
-    achievement.style = "color: #61BD4F;";
   } else {
     achievement.innerHTML = `달성률 ${Math.floor((checkedLength / totalLength) * 100)}%`;
     achievement.classList.remove(HIDE);
-    achievement.style = "color: #f5f5f5;";
   }
 };
 
