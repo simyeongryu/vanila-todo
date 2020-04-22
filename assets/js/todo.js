@@ -127,7 +127,6 @@ const handleTodoSubmit = e => {
 
 /** Local Storage 내 to do list를 불러오는 함수 */
 const loadTodo = () => {
-  // local storage에 to do list가 있으면
   if (localStorage.getItem(LS_TODO_LIST)) {
     const parsed = JSON.parse(localStorage.getItem(LS_TODO_LIST));
     parsed.forEach(todo => addTodo(todo.text, todo.checked));

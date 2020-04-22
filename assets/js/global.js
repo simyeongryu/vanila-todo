@@ -1,6 +1,5 @@
 // DOM
 const greetingsForm = document.querySelector("#greetingsForm");
-const greetingsText = document.querySelector("#greetingsText");
 const greetingsInput = document.querySelector("#greetingsInput");
 const logoutBtn = document.querySelector("#logoutBtn");
 const todoForm = document.querySelector("#todoForm");

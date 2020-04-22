@@ -27,14 +27,16 @@ const handleGreetingsInput = e => {
 };
 
 const handleGreetingsText = () => {
+  const greetingsText = document.querySelector("#greetingsText");
+
   if (localStorage.getItem(LS_USERNAME) === null) {
-    greetingsText.innerHTML = "이름을 입력하세요";
+    greetingsText.innerText = "이름을 입력하세요";
     greetingsInput.classList.remove(HIDE);
 
     logoutBtn.classList.add(HIDE); // 로그아웃 버튼 숨기기
     todoInput.classList.add(HIDE); // todo 입력창 숨기기
   } else {
-    greetingsText.innerHTML = `안녕하세요, ${localStorage.getItem(LS_USERNAME)} 님 :)`;
+    greetingsText.innerText = `안녕하세요, ${localStorage.getItem(LS_USERNAME)} 님 :)`;
     greetingsInput.classList.add(HIDE);
 
     logoutBtn.classList.remove(HIDE); // 로그아웃 버튼 드러내기

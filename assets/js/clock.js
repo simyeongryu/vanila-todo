@@ -1,5 +1,3 @@
-const clock = document.querySelector("#clock");
-
 const getTime = () => {
   let hours = new Date().getHours();
   let minutes = new Date().getMinutes();
@@ -9,7 +7,8 @@ const getTime = () => {
   minutes = minutes < 10 ? `0${minutes}` : minutes;
   seconds = seconds < 10 ? `0${seconds}` : seconds;
 
-  clock.innerHTML = `${hours}:${minutes}:${seconds}`;
+  const clock = document.querySelector("#clock");
+  clock.innerText = `${hours}:${minutes}:${seconds}`;
 };
 
 const clockInit = () => {
