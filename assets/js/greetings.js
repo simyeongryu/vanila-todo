@@ -1,5 +1,11 @@
+const greetingsForm = document.querySelector("#greetingsForm");
+const greetingsInput = document.querySelector("#greetingsInput");
+const logoutBtn = document.querySelector("#logoutBtn");
+
 const handleLogoutBtn = () => {
-  const really = confirm("등록한 일정이 모두 사라집니다. 로그아웃하시겠습니까?");
+  const really = confirm(
+    "등록한 일정이 모두 사라집니다. 로그아웃하시겠습니까?"
+  );
   if (really) {
     localStorage.removeItem(LS_USERNAME);
     localStorage.removeItem(LS_TODO_LIST);
@@ -36,7 +42,9 @@ const handleGreetingsText = () => {
     logoutBtn.classList.add(HIDE); // 로그아웃 버튼 숨기기
     todoInput.classList.add(HIDE); // todo 입력창 숨기기
   } else {
-    greetingsText.innerText = `안녕하세요, ${localStorage.getItem(LS_USERNAME)} 님 :)`;
+    greetingsText.innerText = `안녕하세요, ${localStorage.getItem(
+      LS_USERNAME
+    )} 님 :)`;
     greetingsInput.classList.add(HIDE);
 
     logoutBtn.classList.remove(HIDE); // 로그아웃 버튼 드러내기

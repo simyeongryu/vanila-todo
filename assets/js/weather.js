@@ -1,3 +1,4 @@
+const weather = document.querySelector("#weather");
 const API_KEY = "91c9d63d5dcf2b74c7d2e66cb945ce0a";
 
 const getWeather = async (lat, lng) => {

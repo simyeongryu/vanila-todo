@@ -1,3 +1,8 @@
+const todoForm = document.querySelector("#todoForm");
+const todoInput = document.querySelector("#todoInput");
+const todoList = document.querySelector("#todoList");
+const achievement = document.querySelector("#achievement");
+
 // todo가 담길 배열
 let todoArr = [];
 
@@ -18,7 +23,9 @@ const paintAchievement = (checkedLength = 0, totalLength = 0) => {
     )}%😍`;
     achievement.classList.remove(HIDE);
   } else {
-    achievement.innerHTML = `달성률 ${Math.floor((checkedLength / totalLength) * 100)}%`;
+    achievement.innerHTML = `달성률 ${Math.floor(
+      (checkedLength / totalLength) * 100
+    )}%`;
     achievement.classList.remove(HIDE);
   }
 };
@@ -30,6 +37,7 @@ const paintAchievement = (checkedLength = 0, totalLength = 0) => {
 const handleCheck = e => {
   const checkbox = e.target;
   const li = checkbox.parentNode;
+
   if (checkbox.checked) {
     li.classList.add(ACHIEVED);
     todoArr[li.id].checked = true;
